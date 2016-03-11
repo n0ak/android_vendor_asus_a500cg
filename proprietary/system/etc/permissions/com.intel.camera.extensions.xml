@@ -13,8 +13,6 @@
      See the License for the specific language governing permissions and
      limitations under the License.
 -->
-
 <permissions>
-    <library name="com.intel.camera.extensions"
-            file="/system/framework/com.intel.camera.extensions.jar" />
+	<library name="com.intel.camera.extensions" file="/system/framework/com.intel.camera.extensions.jar" />
 </permissions>

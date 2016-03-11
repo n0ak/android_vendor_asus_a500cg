@@ -32,5 +32,5 @@ IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
 
 <!-- Feature for devices with an ambient temperature sensor. -->
 <permissions>
-    <feature name="android.hardware.sensor.ambient_temperature" />
+	<feature name="android.hardware.sensor.ambient_temperature" />
 </permissions>
