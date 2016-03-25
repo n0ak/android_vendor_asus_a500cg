@@ -1,2 +1,2 @@
-#!/usr/bin/sh
+#!/system/bin/sh
 su -c "mount -o remount,rw /system"
