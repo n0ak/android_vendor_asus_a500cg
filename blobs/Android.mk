@@ -8,8 +8,14 @@ LOCAL_MODULE_PATH:=$(PRODUCT_OUT)/system/vendor/lib
 LOCAL_MODULE_OWNER := system
 SYMLINKS := A500CG_BLOBS_SYMLINKS
 
-# PowerVR SGX544 + Redhookbay
+# PowerVR SGX544 + Redhookbay + Clovertrail-A500CG
 $(SYMLINKS):
+	@echo "Create Directory Structure: $(TARGET_OUT)/lib/"
+	$(hide) mkdir -p "$(TARGET_OUT)/lib/"
+	@echo "Create Directory Structure: $(TARGET_OUT)/lib/ditlib_a500cg/"
+	$(hide) mkdir -p "$(TARGET_OUT)/lib/ditlib_a500cg/"
+	@echo "Create Directory Structure: $(TARGET_OUT)/lib/ditlib_a600cg/"
+	$(hide) mkdir -p "$(TARGET_OUT)/lib/ditlib_a600cg/"
 	@echo "Create Directory Structure: $(TARGET_OUT)/vendor/"
 	$(hide) mkdir -p "$(TARGET_OUT)/vendor/"
 	@echo "Create Directory Structure: $(TARGET_OUT)/vendor/lib/"
@@ -18,6 +24,14 @@ $(SYMLINKS):
 	$(hide) mkdir -p "$(TARGET_OUT)/vendor/lib/egl/"
 	@echo "Create Directory Structure: $(TARGET_OUT)/vendor/lib/hw/"
 	$(hide) mkdir -p "$(TARGET_OUT)/vendor/lib/hw/"
+	@echo "Copy: vendor/asus/a500cg/proprietary/system/lib/ditlib_a500cg/libxditk_DIT_CloverTrailPlus.so -> $(TARGET_OUT)/system/lib/ditlib_a500cg/libxditk_DIT_CloverTrailPlus.so"
+	$(hide) cp -f "$(LOCAL_PATH)/../../vendor/asus/a500cg/proprietary/system/lib/ditlib_a500cg/libxditk_DIT_CloverTrailPlus.so" "$(TARGET_OUT)/system/lib/ditlib_a500cg/libxditk_DIT_CloverTrailPlus.so"
+	@echo "Copy: vendor/asus/a500cg/proprietary/system/lib/ditlib_a500cg/libxditk_DIT_Manager.so -> $(TARGET_OUT)/system/lib/ditlib_a500cg/libxditk_DIT_Manager.so"
+	$(hide) cp -f "$(LOCAL_PATH)/../../vendor/asus/a500cg/proprietary/system/lib/ditlib_a500cg/libxditk_DIT_Manager.so" "$(TARGET_OUT)/system/lib/ditlib_a500cg/libxditk_DIT_Manager.so"
+	@echo "Copy: vendor/asus/a500cg/proprietary/system/lib/ditlib_a600cg/libxditk_DIT_CloverTrailPlus.so -> $(TARGET_OUT)/system/lib/ditlib_a600cg/libxditk_DIT_CloverTrailPlus.so"
+	$(hide) cp -f "$(LOCAL_PATH)/../../vendor/asus/a500cg/proprietary/system/lib/ditlib_a600cg/libxditk_DIT_CloverTrailPlus.so" "$(TARGET_OUT)/system/lib/ditlib_a600cg/libxditk_DIT_CloverTrailPlus.so"
+	@echo "Copy: vendor/asus/a500cg/proprietary/system/lib/ditlib_a600cg/libxditk_DIT_Manager.so -> $(TARGET_OUT)/system/lib/ditlib_a600cg/libxditk_DIT_Manager.so"
+	$(hide) cp -f "$(LOCAL_PATH)/../../vendor/asus/a500cg/proprietary/system/lib/ditlib_a600cg/libxditk_DIT_Manager.so" "$(TARGET_OUT)/system/lib/ditlib_a600cg/libxditk_DIT_Manager.so"
 	@echo "Copy: vendor/asus/a500cg/proprietary/system/vendor/lib/egl/libEGL_POWERVR_SGX544_115.so.1.12.3197934 -> $(TARGET_OUT)/vendor/lib/egl/libEGL_POWERVR_SGX544_115.so.1.12.3197934"
 	$(hide) cp -f "$(LOCAL_PATH)/../../vendor/asus/a500cg/proprietary/system/vendor/lib/egl/libEGL_POWERVR_SGX544_115.so.1.12.3197934" "$(TARGET_OUT)/vendor/lib/egl/libEGL_POWERVR_SGX544_115.so.1.12.3197934"
 	@echo "Copy: vendor/asus/a500cg/proprietary/system/vendor/lib/egl/libGLESv1_CM_POWERVR_SGX544_115.so.1.12.3197934 -> $(TARGET_OUT)/vendor/lib/egl/libGLESv1_CM_POWERVR_SGX544_115.so.1.12.3197934"
@@ -48,6 +62,10 @@ $(SYMLINKS):
 	$(hide) cp -f "$(LOCAL_PATH)/../../vendor/asus/a500cg/proprietary/system/vendor/lib/hw/gralloc.redhookbay.so.1.12.3197934" "$(TARGET_OUT)/vendor/lib/hw/gralloc.redhookbay.so.1.12.3197934"
 	@echo "Copy: vendor/asus/a500cg/proprietary/system/vendor/lib/hw/memtrack.redhookbay.so.1.12.3197934 -> $(TARGET_OUT)/vendor/lib/hw/memtrack.redhookbay.so.1.12.3197934"
 	$(hide) cp -f "$(LOCAL_PATH)/../../vendor/asus/a500cg/proprietary/system/vendor/lib/hw/memtrack.redhookbay.so.1.12.3197934" "$(TARGET_OUT)/vendor/lib/hw/memtrack.redhookbay.so.1.12.3197934"
+	@echo "Symlink: $(TARGET_OUT)/lib/libxditk_DIT_CloverTrailPlus.so -> /system/lib/ditlib_a500cg/libxditk_DIT_CloverTrailPlus.so"
+	$(hide) ln -sf "/system/lib/ditlib_a500cg/libxditk_DIT_CloverTrailPlus.so" "$(TARGET_OUT)/lib/libxditk_DIT_CloverTrailPlus.so"
+	@echo "Symlink: $(TARGET_OUT)/lib/libxditk_DIT_Manager.so -> /system/lib/ditlib_a500cg/libxditk_DIT_Manager.so"
+	$(hide) ln -sf "/system/lib/ditlib_a500cg/libxditk_DIT_Manager.so" "$(TARGET_OUT)/lib/libxditk_DIT_Manager.so"
 	@echo "Symlink: $(TARGET_OUT)/vendor/lib/egl/libEGL_POWERVR_SGX544_115.so -> libEGL_POWERVR_SGX544_115.so.1.12.3197934"
 	$(hide) ln -sf "libEGL_POWERVR_SGX544_115.so.1.12.3197934" "$(TARGET_OUT)/vendor/lib/egl/libEGL_POWERVR_SGX544_115.so"
 	@echo "Symlink: $(TARGET_OUT)/vendor/lib/egl/libGLESv1_CM_POWERVR_SGX544_115.so -> libGLESv1_CM_POWERVR_SGX544_115.so.1.12.3197934"
